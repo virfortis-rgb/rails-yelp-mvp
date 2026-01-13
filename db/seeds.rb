@@ -7,3 +7,14 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+require 'faker'
+
+def rand_cat
+  ["chinese", "italian", "japanese", "french", "belgian"].sample
+end
+
+15.times do |i|
+  Restaurant.create(name: Faker::Hipster.sentence(word_count: 1), address: Faker::Address.full_address, phone_number: Faker::PhoneNumber.phone_number, category: rand_cat)
+  p "Made restaurant ##{i}..."
+end
