@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   # get "restaurants/new", to: "restaurants#new", as: :new_restaurant
   # get "restaurants/:id", to: "restaurants#show", as: :restaurant
   # post "restaurants", to: "restaurants#create"
+
+  root to: "restaurants#index"
   resources :restaurants, only: [:index, :new, :show, :create] do
     resources :reviews, only: [:index, :new, :create]
   end

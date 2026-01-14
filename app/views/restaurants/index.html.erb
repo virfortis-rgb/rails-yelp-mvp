@@ -1,3 +1,14 @@
-<p class="">restaurants#index</p>
 
-<%= link_to "New", new_restaurant_path %>
+<div class="container mb-3">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <%= link_to "Add New", new_restaurant_path, class: "btn btn-primary mb-1" %>
+    </li>
+    <% @restaurants.each do |r| %>
+      <li class="list-group-item">
+        <%= r.name.chomp(".").capitalize %>
+        <%= link_to "See details", restaurant_path(r), class: "btn btn-dark"%>
+      </li>
+    <% end %>
+  </ul>
+</div>

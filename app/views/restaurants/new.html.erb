@@ -1,3 +1,10 @@
 <p class="">restaurants#new</p>
 
+<%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :category %>
+  <%= f.input :phone_number %>
+<% end %>
+
 <%= link_to "Go home", restaurants_path %>
