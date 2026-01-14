@@ -18,3 +18,8 @@ end
   Restaurant.create(name: Faker::Hipster.sentence(word_count: 1), address: Faker::Address.full_address, phone_number: Faker::PhoneNumber.phone_number, category: rand_cat)
   p "Made restaurant ##{i}..."
 end
+
+15.times do |j|
+  Review.create(rating: [1, 2, 3, 4, 5].sample, content: Faker::Hipster.sentence(word_count: 12), restaurant_id: j)
+  p "Made review ##{j}..."
+end
