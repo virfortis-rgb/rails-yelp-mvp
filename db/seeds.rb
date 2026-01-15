@@ -20,6 +20,6 @@ end
 end
 
 15.times do |j|
-  Review.create(rating: [1, 2, 3, 4, 5].sample, content: Faker::Hipster.sentence(word_count: 12), restaurant_id: j)
+  Review.create(rating: [1, 2, 3, 4, 5].sample, content: Faker::Hipster.sentence(word_count: 12), restaurant_id: Restaurant.find_by(id: j))
   p "Made review ##{j}..."
 end
