@@ -9,11 +9,26 @@
     </li>
     <li class="list-group-item">
       <strong>Category: </strong>
-      <%= @restaurant.category %>
+      <%= @restaurant.category.capitalize %>
     </li>
     <li class="list-group-item">
       <strong>Contact: </strong>
       <%= @restaurant.phone_number %>
+    </li>
+
+    <li class="list-group-item">
+      <strong>Reviews: </strong>
+      <ol class="list-group>
+        <li class="list-group-item">
+          <%= render "reviews/new", restaurant: @restaurant %>
+        </li>
+        <% @restaurant.reviews.each do |r|%>
+          <li class="list-group-item">
+            <p><%= r.rating %></p>
+            <p><%= r.content %></p>
+          </li>
+        <% end %>
+      </ol>
     </li>
   </ul>
   <div>

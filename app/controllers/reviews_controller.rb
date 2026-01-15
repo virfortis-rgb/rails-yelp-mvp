@@ -4,16 +4,16 @@ class ReviewsController < ApplicationController
     @reviews = Review.all
   end
 
-  def new
-    @review = Review.new
-  end
-
   def create
     @review = Review.new(review_params)
     @restaurant = Restaurant.find(params[:restaurant_id])
-    @review.restaurant_id = @restaurant_id
-    @review.save
-    redirect_to restaurant_path(@restaurant)
+    @review.restaurant = @restaurant
+    if @review.valid?
+      @review.save
+      redirect_to restaurant_path(@restaurant)
+    else
+      render "restaurants/show", status: :unprocessable_entity
+    end
   end
 
   private
