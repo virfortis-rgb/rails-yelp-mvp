@@ -1,6 +1,6 @@
 <div class="container d-flex flex-column">
   <h3>
-  <%= @restaurant.name.chomp(".") %>
+    <%= @restaurant.name.chomp(".") %>
   </h3>
   <ul class="list-group mb-3">
     <li class="list-group-item">
@@ -15,10 +15,9 @@
       <strong>Contact: </strong>
       <%= @restaurant.phone_number %>
     </li>
-
     <li class="list-group-item">
       <strong>Reviews: </strong>
-      <ol class="list-group>
+      <ol class="list-group">
         <li class="list-group-item">
           <%= render "reviews/new", restaurant: @restaurant %>
         </li>
